@@ -1,0 +1,36 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>County Number Guessing Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Add any additional CSS here -->
+</head>
+<body>
+    <header>
+        <h1>County Number Guessing Game</h1>
+        {% if session.username %}
+            <p>Logged in as: {{ session.username }} | <a href="{{ url_for('logout') }}">Logout</a> | <a href="{{ url_for('scoreboard') }}">Scoreboard</a></p>
+        {% endif %}
+        <hr>
+    </header>
+    
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <hr>
+        <p>&copy; 2024 County Game</p>
+    </footer>
+</body>
+</html>

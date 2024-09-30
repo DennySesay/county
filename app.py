@@ -1,10 +1,27 @@
-from flask import Flask, render_template
-from api import api
+# app.py
 
-app = Flask(__name__)
+from flask import Flask
+from config import Config
+from extensions import db
+from routes.main import main as main_blueprint
 
-app.register_blueprint(api, url_prefix='/api/v1')
+def create_app():
+    app = Flask(__name__)
+    app.config.from_object(Config)
 
-@app.route("/")
-def hello_world():
-    return render_template('index.html')
+    # Initialize extensions
+    db.init_app(app)
+
+    with app.app_context():
+        # Register Blueprints
+        app.register_blueprint(main_blueprint)
+
+        # Create database tables if they don't exist
+        db.create_all()
+
+    return app
+
+app = create_app()
+
+if __name__ == '__main__':
+    app.run(debug=True)

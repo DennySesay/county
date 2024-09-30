@@ -1,0 +1,55 @@
+/* static/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+header, footer {
+    text-align: center;
+}
+
+.flash {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.flash.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.flash.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.flash.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+table {
+    width: 50%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 5px;
+    margin: 5px;
+}
+
+button {
+    padding: 5px 10px;
+}

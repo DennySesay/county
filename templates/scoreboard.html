@@ -1,0 +1,26 @@
+<!-- templates/scoreboard.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Scoreboard</h2>
+    {% if users %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Guess Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.guess_count }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No players yet. Be the first to play!</p>
+    {% endif %}
+{% endblock %}

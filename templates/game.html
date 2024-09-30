@@ -1,0 +1,18 @@
+<!-- templates/game.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Guess the Number</h2>
+    <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
+    <p>Guess Count: {{ guess_count }}</p>
+    
+    <form method="POST" action="{{ url_for('game') }}">
+        <label for="guess">Your Guess:</label>
+        <input type="number" id="guess" name="guess" min="1" max="100" required>
+        <button type="submit">Submit Guess</button>
+    </form>
+    
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+{% endblock %}

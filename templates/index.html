@@ -1,0 +1,11 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Enter Your Username</h2>
+    <form method="POST" action="{{ url_for('index') }}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <button type="submit">Start Game</button>
+    </form>
+{% endblock %}
