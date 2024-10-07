@@ -11,7 +11,7 @@
     <header>
         <h1>County Number Guessing Game</h1>
         {% if session.username %}
-            <p>Logged in as: {{ session.username }} | <a href="{{ url_for('logout') }}">Logout</a> | <a href="{{ url_for('scoreboard') }}">Scoreboard</a></p>
+            <p>Logged in as: {{ session.username }} | <a href="{{ url_for('main.logout') }}">Logout</a> | <a href="{{ url_for('main.scoreboard') }}">Scoreboard</a></p>
         {% endif %}
         <hr>
     </header>

@@ -6,7 +6,7 @@
     <p>I'm thinking of a number between 1 and 100. Can you guess it?</p>
     <p>Guess Count: {{ guess_count }}</p>
     
-    <form method="POST" action="{{ url_for('game') }}">
+    <form method="POST" action="{{ url_for('main.game') }}">
         <label for="guess">Your Guess:</label>
         <input type="number" id="guess" name="guess" min="1" max="100" required>
         <button type="submit">Submit Guess</button>
